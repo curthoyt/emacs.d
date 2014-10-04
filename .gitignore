@@ -2,7 +2,6 @@
 /.emacs.desktop
 /auto-save-list
 /.session
-/custom.el
 *.elc
 CVS
 .svn
@@ -18,7 +17,7 @@ cookies
 /ac-comphist.dat
 \#*
 /elpa
-site-lisp/package/
+site-lisp/
 /swank
 /.mc-lists.el
 /var

@@ -10,14 +10,14 @@
 (setq-default
  blink-cursor-delay 0
  blink-cursor-interval 0.4
- bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
+ ;; bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
  case-fold-search t
  column-number-mode t
  compilation-scroll-output t
- delete-selection-mode t
- ediff-split-window-function 'split-window-horizontally
- ediff-window-setup-function 'ediff-setup-windows-plain
+ ;; delete-selection-mode t
+ ;; ediff-split-window-function 'split-window-horizontally
+ ;; ediff-window-setup-function 'ediff-setup-windows-plain
  grep-highlight-matches t
  grep-scroll-output t
  indent-tabs-mode nil
@@ -32,8 +32,8 @@
  truncate-partial-width-windows nil
  visible-bell t)
 
-(when *is-a-mac*
-  (setq-default locate-command "mdfind"))
+;; (when *is-a-mac*
+;;   (setq-default locate-command "mdfind"))
 
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
@@ -92,12 +92,12 @@
 (diminish 'undo-tree-mode)
 
 
-(require-package 'highlight-symbol)
-(dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook))
-  (add-hook hook 'highlight-symbol-mode)
-  (add-hook hook 'highlight-symbol-nav-mode))
-(eval-after-load 'highlight-symbol
-  '(diminish 'highlight-symbol-mode))
+;; (require-package 'highlight-symbol)
+;; (dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook))
+;;   (add-hook hook 'highlight-symbol-mode)
+;;   (add-hook hook 'highlight-symbol-nav-mode))
+;; (eval-after-load 'highlight-symbol
+;;   '(diminish 'highlight-symbol-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Zap *up* to char is a handy pair for zap-to-char
@@ -125,8 +125,8 @@
 ;;----------------------------------------------------------------------------
 ;; Expand region
 ;;----------------------------------------------------------------------------
-(require-package 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+;; (require-package 'expand-region)
+;; (global-set-key (kbd "C-=") 'er/expand-region)
 
 
 ;;----------------------------------------------------------------------------
@@ -148,45 +148,45 @@
 ;; To be able to M-x without meta
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
-;; Vimmy alternatives to M-^ and C-u M-^
-(global-set-key (kbd "C-c j") 'join-line)
-(global-set-key (kbd "C-c J") (lambda () (interactive) (join-line 1)))
+;; ;; Vimmy alternatives to M-^ and C-u M-^
+;; (global-set-key (kbd "C-c j") 'join-line)
+;; (global-set-key (kbd "C-c J") (lambda () (interactive) (join-line 1)))
 
-(global-set-key (kbd "C-.") 'set-mark-command)
-(global-set-key (kbd "C-x C-.") 'pop-global-mark)
+;; (global-set-key (kbd "C-.") 'set-mark-command)
+;; (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
-(require-package 'ace-jump-mode)
-(global-set-key (kbd "C-;") 'ace-jump-mode)
-(global-set-key (kbd "C-:") 'ace-jump-word-mode)
-
-
-(require-package 'multiple-cursors)
-;; multiple-cursors
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-;; From active region to multiple cursors:
-(global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
-(global-set-key (kbd "C-c c c") 'mc/edit-lines)
-(global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
+;; (require-package 'ace-jump-mode)
+;; (global-set-key (kbd "C-;") 'ace-jump-mode)
+;; (global-set-key (kbd "C-:") 'ace-jump-word-mode)
 
 
-;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
+;; (require-package 'multiple-cursors)
+;; ;; multiple-cursors
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; ;; From active region to multiple cursors:
+;; (global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
+;; (global-set-key (kbd "C-c c c") 'mc/edit-lines)
+;; (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
+;; (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
+
+
+;; ;; Train myself to use M-f and M-b instead
+;; (global-unset-key [M-left])
+;; (global-unset-key [M-right])
 
 
 
-(defun kill-back-to-indentation ()
-  "Kill from point back to the first non-whitespace character on the line."
-  (interactive)
-  (let ((prev-pos (point)))
-    (back-to-indentation)
-    (kill-region (point) prev-pos)))
+;; (defun kill-back-to-indentation ()
+;;   "Kill from point back to the first non-whitespace character on the line."
+;;   (interactive)
+;;   (let ((prev-pos (point)))
+;;     (back-to-indentation)
+;;     (kill-region (point) prev-pos)))
 
-(global-set-key (kbd "C-M-<backspace>") 'kill-back-to-indentation)
+;; (global-set-key (kbd "C-M-<backspace>") 'kill-back-to-indentation)
 
 
 ;;----------------------------------------------------------------------------
@@ -234,19 +234,19 @@
           (turn-on-fci-mode))))))
 
 
-;;----------------------------------------------------------------------------
-;; Shift lines up and down with M-up and M-down. When paredit is enabled,
-;; it will use those keybindings. For this reason, you might prefer to
-;; use M-S-up and M-S-down, which will work even in lisp modes.
-;;----------------------------------------------------------------------------
-(require-package 'move-dup)
-(global-set-key [M-up] 'md/move-lines-up)
-(global-set-key [M-down] 'md/move-lines-down)
-(global-set-key [M-S-up] 'md/move-lines-up)
-(global-set-key [M-S-down] 'md/move-lines-down)
+;; ;;----------------------------------------------------------------------------
+;; ;; Shift lines up and down with M-up and M-down. When paredit is enabled,
+;; ;; it will use those keybindings. For this reason, you might prefer to
+;; ;; use M-S-up and M-S-down, which will work even in lisp modes.
+;; ;;----------------------------------------------------------------------------
+;; (require-package 'move-dup)
+;; (global-set-key [M-up] 'md/move-lines-up)
+;; (global-set-key [M-down] 'md/move-lines-down)
+;; (global-set-key [M-S-up] 'md/move-lines-up)
+;; (global-set-key [M-S-down] 'md/move-lines-down)
 
-(global-set-key (kbd "C-c p") 'md/duplicate-down)
-(global-set-key (kbd "C-c P") 'md/duplicate-up)
+;; (global-set-key (kbd "C-c p") 'md/duplicate-down)
+;; (global-set-key (kbd "C-c P") 'md/duplicate-up)
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
@@ -270,23 +270,23 @@
 (diminish 'whole-line-or-region-mode)
 (make-variable-buffer-local 'whole-line-or-region-mode)
 
-(defun suspend-mode-during-cua-rect-selection (mode-name)
-  "Add an advice to suspend `MODE-NAME' while selecting a CUA rectangle."
-  (let ((flagvar (intern (format "%s-was-active-before-cua-rectangle" mode-name)))
-        (advice-name (intern (format "suspend-%s" mode-name))))
-    (eval-after-load 'cua-rect
-      `(progn
-         (defvar ,flagvar nil)
-         (make-variable-buffer-local ',flagvar)
-         (defadvice cua--activate-rectangle (after ,advice-name activate)
-           (setq ,flagvar (and (boundp ',mode-name) ,mode-name))
-           (when ,flagvar
-             (,mode-name 0)))
-         (defadvice cua--deactivate-rectangle (after ,advice-name activate)
-           (when ,flagvar
-             (,mode-name 1)))))))
+;; (defun suspend-mode-during-cua-rect-selection (mode-name)
+;;   "Add an advice to suspend `MODE-NAME' while selecting a CUA rectangle."
+;;   (let ((flagvar (intern (format "%s-was-active-before-cua-rectangle" mode-name)))
+;;         (advice-name (intern (format "suspend-%s" mode-name))))
+;;     (eval-after-load 'cua-rect
+;;       `(progn
+;;          (defvar ,flagvar nil)
+;;          (make-variable-buffer-local ',flagvar)
+;;          (defadvice cua--activate-rectangle (after ,advice-name activate)
+;;            (setq ,flagvar (and (boundp ',mode-name) ,mode-name))
+;;            (when ,flagvar
+;;              (,mode-name 0)))
+;;          (defadvice cua--deactivate-rectangle (after ,advice-name activate)
+;;            (when ,flagvar
+;;              (,mode-name 1)))))))
 
-(suspend-mode-during-cua-rect-selection 'whole-line-or-region-mode)
+;; (suspend-mode-during-cua-rect-selection 'whole-line-or-region-mode)
 
 
 
@@ -339,11 +339,11 @@ With arg N, insert N newlines."
 
 
 
-(when (executable-find "ag")
-  (require-package 'ag)
-  (require-package 'wgrep-ag)
-  (setq-default ag-highlight-search t)
-  (global-set-key (kbd "M-?") 'ag-project))
+;; (when (executable-find "ag")
+;;   (require-package 'ag)
+;;   (require-package 'wgrep-ag)
+;;   (setq-default ag-highlight-search t)
+;;   (global-set-key (kbd "M-?") 'ag-project))
 
 
 
