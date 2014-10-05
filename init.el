@@ -2,14 +2,14 @@
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
-(let ((minver 23))
-  (unless (>= emacs-major-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+;; (let ((minver 23))
+;;   (unless (>= emacs-major-version minver)
+;;     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 ;; (require 'init-benchmarking) ;; Measure startup time
 
-(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+;; (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;;----------------------------------------------------------------------------
@@ -31,9 +31,9 @@
 ;;----------------------------------------------------------------------------
 
 ;; (require-package 'wgrep)
-(require-package 'project-local-variables)
+;; (require-package 'project-local-variables)
 (require-package 'diminish)
-(require-package 'scratch)
+;; (require-package 'scratch)
 ;; (require-package 'mwe-log-commands)
 
 (require 'init-frame-hooks)
@@ -54,7 +54,7 @@
 (require 'init-auto-complete)
 (require 'init-windows)
 (require 'init-sessions)
-(require 'init-fonts)
+;; (require 'init-fonts)
 (require 'init-mmm)
 
 (require 'init-editing-utils)
@@ -100,7 +100,7 @@
 ;;   (require 'init-spelling))
 
 ;; (require 'init-marmalade)
-(require 'init-misc)
+;; (require 'init-misc)
 
 ;; (require 'init-dash)
 ;; (require 'init-ledger)

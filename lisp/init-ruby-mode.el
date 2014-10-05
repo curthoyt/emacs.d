@@ -38,7 +38,6 @@
 
 ;;; Ruby compilation
 (require-package 'ruby-compilation)
-
 (after-load 'ruby-mode
   (let ((m ruby-mode-map))
     (define-key m [S-f7] 'ruby-compilation-this-buffer)
@@ -98,7 +97,6 @@
 ;;----------------------------------------------------------------------------
 ;; Ruby - my convention for heredocs containing SQL
 ;;----------------------------------------------------------------------------
-
 ;; Needs to run after rinari to avoid clobbering font-lock-keywords?
 
 ;; (require-package 'mmm-mode)

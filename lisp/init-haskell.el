@@ -1,6 +1,6 @@
 (require-package 'haskell-mode)
-(when (> emacs-major-version 23)
-  (require-package 'hayoo))
+;; (when (> emacs-major-version 23)
+;;   (require-package 'hayoo))
 
 (add-to-list 'completion-ignored-extensions ".hi")
 
@@ -47,18 +47,18 @@ been saved."
 
 (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
-(setq-default haskell-stylish-on-save t)
+;; (setq-default haskell-stylish-on-save t)
 
-(after-load 'haskell-mode
-  (define-key haskell-mode-map (kbd "C-c h") 'hoogle)
-  (define-key haskell-mode-map (kbd "C-o") 'open-line))
+;; (after-load 'haskell-mode
+;;   (define-key haskell-mode-map (kbd "C-c h") 'hoogle)
+;;   (define-key haskell-mode-map (kbd "C-o") 'open-line))
 
 (when (eval-when-compile (>= emacs-major-version 24))
   (require-package 'ghci-completion)
   (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion))
 
-(eval-after-load 'page-break-lines
-  '(push 'haskell-mode page-break-lines-modes))
+;; (eval-after-load 'page-break-lines
+;;   '(push 'haskell-mode page-break-lines-modes))
 
 ;; Make compilation-mode understand "at blah.hs:11:34-50" lines output by GHC
 (after-load 'compile
