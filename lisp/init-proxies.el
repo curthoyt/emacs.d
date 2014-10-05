@@ -32,5 +32,4 @@
                         (if (not (equal "" proxy)) (list (cons proto (extract-host-and-port proxy)))))))
     (message "proxy variables updated")))
 
-
 (provide 'init-proxies)

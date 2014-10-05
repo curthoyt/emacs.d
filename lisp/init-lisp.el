@@ -7,7 +7,6 @@
 ;; (setq-default initial-scratch-message
 ;;               (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
 
-
 
 ;; ;; Make C-x C-e run 'eval-region if the region is active
 
@@ -32,7 +31,6 @@
 ;;   (when (get-buffer out-buffer-name)
 ;;     (with-current-buffer out-buffer-name
 ;;       (view-mode 1))))
-
 
 
 ;; ;; Use C-c C-z to toggle between elisp files and an ielm session
@@ -67,7 +65,6 @@
 ;; ----------------------------------------------------------------------------
 ;; Hippie-expand
 ;; ----------------------------------------------------------------------------
-
 (defun my/emacs-lisp-module-name ()
   "Search the buffer for `provide' declaration."
   (save-excursion
@@ -96,11 +93,9 @@
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol-partially t)
   (add-to-list 'hippie-expand-try-functions-list 'my/try-complete-lisp-symbol-without-namespace t))
 
-
 ;; ----------------------------------------------------------------------------
 ;; Automatic byte compilation
 ;; ----------------------------------------------------------------------------
-
 ;; (require-package 'auto-compile)
 ;; (auto-compile-on-save-mode 1)
 ;; (auto-compile-on-load-mode 1)
@@ -108,7 +103,6 @@
 ;; ----------------------------------------------------------------------------
 ;; Highlight current sexp
 ;; ----------------------------------------------------------------------------
-
 ;; (require-package 'hl-sexp)
 
 ;; ;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
@@ -116,7 +110,6 @@
 ;;   (defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
 ;;     (when turn-on
 ;;       (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
-
 
 
 ;; ;;; Support byte-compilation in a sub-process, as
@@ -142,7 +135,6 @@
 ;; (require-package 'redshank)
 ;; (after-load 'redshank
 ;;   (diminish 'redshank-mode))
-
 
 (defun sanityinc/lisp-setup ()
   "Enable features useful in any Lisp mode."
@@ -226,7 +218,6 @@
 ;;   (let ((sanityinc/vc-reverting t))
 ;;     ad-do-it))
 
-
 
 ;; (require-package 'macrostep)
 
@@ -239,7 +230,6 @@
 ;; (global-set-key (kbd "C-h K") 'find-function-on-key)
 
 
-
 (when (eval-when-compile (>= emacs-major-version 24))
   ;; rainbow-mode needs color.el, bundled with Emacs >= 24.
   (require-package 'rainbow-mode)
@@ -253,6 +243,5 @@
 ;; (when (eval-when-compile (>= emacs-major-version 24))
 ;;   (require-package 'highlight-quoted)
 ;;   (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode))
-
 
 (provide 'init-lisp)

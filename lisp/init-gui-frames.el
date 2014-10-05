@@ -8,7 +8,6 @@
 
 (global-set-key (kbd "C-z") 'maybe-suspend-frame)
 
-
 ;;----------------------------------------------------------------------------
 ;; Suppress GUI features
 ;;----------------------------------------------------------------------------
@@ -17,12 +16,10 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message t)
 
-
 ;;----------------------------------------------------------------------------
 ;; Show a marker in the left fringe for lines not in the buffer
 ;;----------------------------------------------------------------------------
 (setq indicate-empty-lines t)
-
 
 ;;----------------------------------------------------------------------------
 ;; Window size and features
@@ -67,6 +64,5 @@
 (add-hook 'term-mode-hook
           (lambda ()
             (setq line-spacing 0)))
-
 
 (provide 'init-gui-frames)

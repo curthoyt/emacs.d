@@ -24,7 +24,7 @@
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
 ;;----------------------------------------------------------------------------
-(require 'init-preload-local nil t)
+;; (require 'init-preload-local nil t)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
@@ -99,7 +99,7 @@
 ;; (when *spell-check-support-enabled*
 ;;   (require 'init-spelling))
 
-(require 'init-marmalade)
+;; (require 'init-marmalade)
 (require 'init-misc)
 
 ;; (require 'init-dash)
@@ -121,7 +121,6 @@
 ;; (unless (server-running-p)
 ;;   (server-start))
 
-
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------
@@ -129,14 +128,12 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-local" containing personal settings
 ;;----------------------------------------------------------------------------
 (when (file-exists-p (expand-file-name "init-local.el" user-emacs-directory))
   (error "Please move init-local.el to ~/.emacs.d/lisp"))
 (require 'init-local nil t)
-
 
 ;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
@@ -147,6 +144,5 @@
 ;;           (lambda ()
 ;;             (message "init completed in %.2fms"
 ;;                      (sanityinc/time-subtract-millis after-init-time before-init-time))))
-
 
 (provide 'init)

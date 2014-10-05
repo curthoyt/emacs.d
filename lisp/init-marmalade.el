@@ -1,7 +1,6 @@
 (require-package 'marmalade)
 
 ;;; Handy code for uploading new versions of my own packages to marmalade
-
 (autoload 'marmalade-upload-buffer "marmalade")
 
 (defun sanityinc/parse-git-version (s)
@@ -63,6 +62,5 @@
       (marmalade-upload-buffer buf)
       (revert-buffer t t)
       (message "Submitted version %s to marmalade" tag))))
-
 
 (provide 'init-marmalade)

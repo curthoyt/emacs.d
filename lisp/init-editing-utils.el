@@ -11,7 +11,7 @@
  blink-cursor-delay 0
  blink-cursor-interval 0.4
  ;; bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
- buffers-menu-max-size 30
+ ;; buffers-menu-max-size 30
  case-fold-search t
  column-number-mode t
  compilation-scroll-output t
@@ -27,10 +27,10 @@
  scroll-preserve-screen-position 'always
  set-mark-command-repeat-pop t
  show-trailing-whitespace t
- tooltip-delay 1.5
+ ;; tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil
- visible-bell t)
+ visible-bell nil)
 
 ;; (when *is-a-mac*
 ;;   (setq-default locate-command "mdfind"))
@@ -42,29 +42,26 @@
 (transient-mark-mode t)
 
 
-;;; Whitespace
+;; ;;; Whitespace
+;; (defun sanityinc/no-trailing-whitespace ()
+;;   "Turn off display of trailing whitespace in this buffer."
+;;   (setq show-trailing-whitespace nil))
 
-(defun sanityinc/no-trailing-whitespace ()
-  "Turn off display of trailing whitespace in this buffer."
-  (setq show-trailing-whitespace nil))
-
-;; But don't show trailing whitespace in SQLi, inf-ruby etc.
-(dolist (hook '(special-mode-hook
-                eww-mode
-                term-mode-hook
-                comint-mode-hook
-                compilation-mode-hook
-                twittering-mode-hook
-                minibuffer-setup-hook))
-  (add-hook hook #'sanityinc/no-trailing-whitespace))
-
+;; ;; But don't show trailing whitespace in SQLi, inf-ruby etc.
+;; (dolist (hook '(special-mode-hook
+;;                 eww-mode
+;;                 term-mode-hook
+;;                 comint-mode-hook
+;;                 compilation-mode-hook
+;;                 twittering-mode-hook
+;;                 minibuffer-setup-hook))
+;;   (add-hook hook #'sanityinc/no-trailing-whitespace))
 
 (require-package 'whitespace-cleanup-mode)
 (global-whitespace-cleanup-mode t)
 
 
 ;;; Newline behaviour
-
 (global-set-key (kbd "RET") 'newline-and-indent)
 (defun sanityinc/newline-at-end-of-line ()
   "Move to end of line, enter a newline, and reindent."
@@ -75,14 +72,12 @@
 (global-set-key (kbd "S-<return>") 'sanityinc/newline-at-end-of-line)
 
 
-
 (when (eval-when-compile (string< "24.3.1" emacs-version))
   ;; https://github.com/purcell/emacs.d/issues/138
   (after-load 'subword
     (diminish 'subword-mode)))
 
 
-
 (when (fboundp 'global-prettify-symbols-mode)
   (global-prettify-symbols-mode))
 
@@ -105,10 +100,8 @@
 (autoload 'zap-up-to-char "misc" "Kill up to, but not including ARGth occurrence of CHAR.")
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
-
 
 (require-package 'browse-kill-ring)
-
 
 ;;----------------------------------------------------------------------------
 ;; Don't disable narrowing commands
@@ -128,19 +121,16 @@
 ;; (require-package 'expand-region)
 ;; (global-set-key (kbd "C-=") 'er/expand-region)
 
-
 ;;----------------------------------------------------------------------------
 ;; Don't disable case-change functions
 ;;----------------------------------------------------------------------------
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-
 ;;----------------------------------------------------------------------------
 ;; Rectangle selections, and overwrite text when the selection is active
 ;;----------------------------------------------------------------------------
-(cua-selection-mode t)                  ; for rectangles, CUA is nice
-
+;; (cua-selection-mode t)                  ; for rectangles, CUA is nice
 
 ;;----------------------------------------------------------------------------
 ;; Handy key bindings
@@ -159,7 +149,6 @@
 ;; (global-set-key (kbd "C-;") 'ace-jump-mode)
 ;; (global-set-key (kbd "C-:") 'ace-jump-word-mode)
 
-
 ;; (require-package 'multiple-cursors)
 ;; ;; multiple-cursors
 ;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -172,12 +161,9 @@
 ;; (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
 ;; (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
 
-
 ;; ;; Train myself to use M-f and M-b instead
 ;; (global-unset-key [M-left])
 ;; (global-unset-key [M-right])
-
-
 
 ;; (defun kill-back-to-indentation ()
 ;;   "Kill from point back to the first non-whitespace character on the line."
@@ -187,7 +173,6 @@
 ;;     (kill-region (point) prev-pos)))
 
 ;; (global-set-key (kbd "C-M-<backspace>") 'kill-back-to-indentation)
-
 
 ;;----------------------------------------------------------------------------
 ;; Page break lines
@@ -207,7 +192,7 @@
       (set (make-local-variable 'whitespace-style) '(face trailing))
       (whitespace-mode 1)))
 
-  ;;(add-hook 'prog-mode-hook 'sanityinc/prog-mode-fci-settings)
+  ;; (add-hook 'prog-mode-hook 'sanityinc/prog-mode-fci-settings)
 
   (defun sanityinc/fci-enabled-p ()
     (and (boundp 'fci-mode) fci-mode))
@@ -233,7 +218,6 @@
         (when (sanityinc/fci-enabled-p)
           (turn-on-fci-mode))))))
 
-
 ;; ;;----------------------------------------------------------------------------
 ;; ;; Shift lines up and down with M-up and M-down. When paredit is enabled,
 ;; ;; it will use those keybindings. For this reason, you might prefer to
@@ -251,24 +235,23 @@
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
 ;;----------------------------------------------------------------------------
-(defun backward-up-sexp (arg)
-  "Jump up to the start of the ARG'th enclosing sexp."
-  (interactive "p")
-  (let ((ppss (syntax-ppss)))
-    (cond ((elt ppss 3)
-           (goto-char (elt ppss 8))
-           (backward-up-sexp (1- arg)))
-          ((backward-up-list arg)))))
+;; (defun backward-up-sexp (arg)
+;;   "Jump up to the start of the ARG'th enclosing sexp."
+;;   (interactive "p")
+;;   (let ((ppss (syntax-ppss)))
+;;     (cond ((elt ppss 3)
+;;            (goto-char (elt ppss 8))
+;;            (backward-up-sexp (1- arg)))
+;;           ((backward-up-list arg)))))
 
-(global-set-key [remap backward-up-list] 'backward-up-sexp) ; C-M-u, C-M-up
-
+;; (global-set-key [remap backward-up-list] 'backward-up-sexp) ; C-M-u, C-M-up
 
 ;;----------------------------------------------------------------------------
 ;; Cut/copy the current line if no region is active
 ;;----------------------------------------------------------------------------
-(whole-line-or-region-mode t)
-(diminish 'whole-line-or-region-mode)
-(make-variable-buffer-local 'whole-line-or-region-mode)
+;; (whole-line-or-region-mode t)
+;; (diminish 'whole-line-or-region-mode)
+;; (make-variable-buffer-local 'whole-line-or-region-mode)
 
 ;; (defun suspend-mode-during-cua-rect-selection (mode-name)
 ;;   "Add an advice to suspend `MODE-NAME' while selecting a CUA rectangle."
@@ -288,9 +271,7 @@
 
 ;; (suspend-mode-during-cua-rect-selection 'whole-line-or-region-mode)
 
-
 
-
 (defun sanityinc/open-line-with-reindent (n)
   "A version of `open-line' which reindents the start and end positions.
 If there is a fill prefix and/or a `left-margin', insert them
@@ -320,7 +301,6 @@ With arg N, insert N newlines."
 
 (global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
 
-
 ;;----------------------------------------------------------------------------
 ;; Random line sorting
 ;;----------------------------------------------------------------------------
@@ -336,15 +316,12 @@ With arg N, insert N newlines."
         (sort-subr nil 'forward-line 'end-of-line nil nil
                    (lambda (s1 s2) (eq (random 2) 0)))))))
 
-
 
-
 ;; (when (executable-find "ag")
 ;;   (require-package 'ag)
 ;;   (require-package 'wgrep-ag)
 ;;   (setq-default ag-highlight-search t)
 ;;   (global-set-key (kbd "M-?") 'ag-project))
-
 
 
 (require-package 'highlight-escape-sequences)
@@ -355,6 +332,5 @@ With arg N, insert N newlines."
 (setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n"))
 (guide-key-mode 1)
 (diminish 'guide-key-mode)
-
 
 (provide 'init-editing-utils)

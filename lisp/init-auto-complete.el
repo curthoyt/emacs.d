@@ -35,7 +35,6 @@
 
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-
 (set-default 'ac-sources
              '(ac-source-imenu
                ac-source-dictionary
@@ -54,12 +53,10 @@
                 inferior-emacs-lisp-mode))
   (add-to-list 'ac-modes mode))
 
-
 ;; Exclude very large buffers from dabbrev
 (defun sanityinc/dabbrev-friend-buffer (other-buffer)
   (< (buffer-size other-buffer) (* 1 1024 1024)))
 
 (setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
-
 
 (provide 'init-auto-complete)

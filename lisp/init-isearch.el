@@ -29,7 +29,6 @@
 
 (define-key isearch-mode-map "\C-\M-w" 'isearch-yank-symbol)
 
-
 ;; http://www.emacswiki.org/emacs/ZapToISearch
 (defun zap-to-isearch (rbeg rend)
   "Kill the region between the mark and the closest portion of
@@ -60,7 +59,6 @@ and the point, not include the isearch word."
 
 (define-key isearch-mode-map [(meta z)] 'zap-to-isearch)
 
-
 ;; http://www.emacswiki.org/emacs/ZapToISearch
 (defun isearch-exit-other-end (rbeg rend)
   "Exit isearch, but at the other end of the search string.
@@ -70,6 +68,5 @@ This is useful when followed by an immediate kill."
   (goto-char isearch-other-end))
 
 (define-key isearch-mode-map [(control return)] 'isearch-exit-other-end)
-
 
 (provide 'init-isearch)

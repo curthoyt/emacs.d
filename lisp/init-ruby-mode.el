@@ -35,7 +35,6 @@
 (after-load 'inf-ruby
   (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
 
-
 
 ;;; Ruby compilation
 (require-package 'ruby-compilation)
@@ -45,7 +44,6 @@
     (define-key m [S-f7] 'ruby-compilation-this-buffer)
     (define-key m [f7] 'ruby-compilation-this-test)
     (define-key m [f6] 'recompile)))
-
 
 
 ;;; Robe
@@ -58,18 +56,14 @@
               (add-to-list 'ac-sources 'ac-source-robe)
               (set-auto-complete-as-completion-at-point-function))))
 
-
 
 ;;; ri support
 (require-package 'yari)
 (defalias 'ri 'yari)
 
-
 
 ;;; YAML
-
 (require-package 'yaml-mode)
-
 
 
 ;;; ERB
@@ -101,7 +95,6 @@
 (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
   (mmm-add-mode-ext-class mode "\\.js\\.erb\\'" 'erb))
 
-
 ;;----------------------------------------------------------------------------
 ;; Ruby - my convention for heredocs containing SQL
 ;;----------------------------------------------------------------------------
@@ -121,8 +114,6 @@
 ;;          :delimiter-mode nil)))
 ;;      (mmm-add-mode-ext-class 'ruby-mode "\\.rb\\'" 'ruby-heredoc-sql)))
 
-;(add-to-list 'mmm-set-file-name-for-modes 'ruby-mode)
-
-
+;; (add-to-list 'mmm-set-file-name-for-modes 'ruby-mode)
 
 (provide 'init-ruby-mode)

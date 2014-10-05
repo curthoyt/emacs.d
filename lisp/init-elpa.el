@@ -10,7 +10,6 @@
 
 (require 'package)
 
-
 
 ;;; Standard package repositories
 
@@ -18,7 +17,7 @@
 
 ;; We include the org repository for completeness, but don't normally
 ;; use it.
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -26,7 +25,6 @@
 ;;; Also use Melpa for most packages
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
-
 
 
 ;; If gpg cannot be found, signature checking will fail, so we
@@ -38,7 +36,6 @@
 (sanityinc/package-maybe-enable-signatures)
 (after-load 'init-exec-path
   (sanityinc/package-maybe-enable-signatures))
-
 
 
 ;;; On-demand installation of packages
@@ -55,17 +52,13 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (require-package package min-version t)))))
 
-
 
 ;;; Fire up package.el
-
 (setq package-enable-at-startup nil)
 (package-initialize)
-
 
 
 (require-package 'fullframe)
 (fullframe list-packages quit-window)
-
 
 (provide 'init-elpa)

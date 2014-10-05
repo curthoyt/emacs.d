@@ -12,5 +12,4 @@
   (add-hook 'dired-mode-hook
             (lambda () (guide-key/add-local-guide-key-sequence "%"))))
 
-
 (provide 'init-dired)

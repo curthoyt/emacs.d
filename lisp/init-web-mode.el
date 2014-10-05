@@ -5,7 +5,6 @@
 (add-auto-mode 'web-mode "\\.mustache\\'")
 (add-auto-mode 'web-mode "\\.html?\\'")
 (add-auto-mode 'web-mode "\\.jst\\'")
-;; (add-auto-mode 'web-mode "\\.jsx\\'")
 (add-auto-mode 'web-mode "\\.jsx?\\'")
 
 (require-package 'jade-mode)

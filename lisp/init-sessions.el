@@ -52,11 +52,11 @@
                 (ido-last-directory-list  . 100)
                 (ido-work-directory-list  . 100)
                 (ido-work-file-list       . 100)
-                (magit-read-rev-history   . 50)
+                ;; (magit-read-rev-history   . 50)
                 (minibuffer-history       . 50)
-                (org-clock-history        . 50)
-                (org-refile-history       . 50)
-                (org-tags-history         . 50)
+                ;; (org-clock-history        . 50)
+                ;; (org-refile-history       . 50)
+                ;; (org-tags-history         . 50)
                 (query-replace-history    . 60)
                 (read-expression-history  . 60)
                 (regexp-history           . 60)
@@ -73,6 +73,5 @@
   (unless (boundp 'desktop-restore-frames)
     (require-package 'frame-restore)
     (frame-restore)))
-
 
 (provide 'init-sessions)

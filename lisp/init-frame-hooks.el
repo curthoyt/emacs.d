@@ -21,5 +21,4 @@ Selectively runs either `after-make-console-frame-hooks' or
           (lambda () (when sanityinc/initial-frame
                   (run-after-make-frame-hooks sanityinc/initial-frame))))
 
-
 (provide 'init-frame-hooks)

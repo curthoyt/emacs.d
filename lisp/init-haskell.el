@@ -30,7 +30,6 @@ been saved."
 
     (require 'flycheck-hdevtools)))
 
-
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook 'turn-on-haskell-doc-mode)
   (add-hook hook (lambda () (subword-mode +1))))
@@ -70,11 +69,9 @@ been saved."
     (add-to-list
      'compilation-error-regexp-alist alias)))
 
-
 
 ;; Hook auto-complete into the completions provided by the inferior
 ;; haskell process, if any.
-
 (require-package 'ac-haskell-process)
 
 (add-hook 'interactive-haskell-mode-hook 'ac-haskell-process-setup)
@@ -86,6 +83,5 @@ been saved."
 (after-load 'auto-complete
   (add-to-list 'ac-modes 'haskell-interactive-mode)
   (add-hook 'haskell-interactive-mode-hook 'set-auto-complete-as-completion-at-point-function))
-
 
 (provide 'init-haskell)

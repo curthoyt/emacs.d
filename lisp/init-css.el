@@ -33,21 +33,17 @@
   (dolist (mode (list 'html-mode 'nxml-mode))
     (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css)))
 
-
-
 
 ;;; SASS and SCSS
 (require-package 'sass-mode)
 (require-package 'scss-mode)
 (setq-default scss-compile-at-save nil)
 
-
 
 ;;; LESS
 (require-package 'less-css-mode)
 (when (featurep 'js2-mode)
   (require-package 'skewer-less))
-
 
 
 ;;; Auto-complete CSS keywords
@@ -60,6 +56,5 @@
 (require-package 'css-eldoc)
 (autoload 'turn-on-css-eldoc "css-eldoc")
 (add-hook 'css-mode-hook 'turn-on-css-eldoc)
-
 
 (provide 'init-css)

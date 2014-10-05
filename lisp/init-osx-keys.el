@@ -16,5 +16,4 @@
   (global-set-key (kbd "M-ˍ") 'ns-do-hide-others) ;; what describe-key reports for cmd-option-h
   )
 
-
 (provide 'init-osx-keys)

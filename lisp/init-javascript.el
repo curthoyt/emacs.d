@@ -21,7 +21,6 @@
                                   unless (eq preferred-javascript-mode (cdr entry))
                                   collect entry)))
 
-
 ;; js2-mode
 (after-load 'js2-mode
   ;; Disable js2 mode's syntax error highlighting by default...
@@ -47,20 +46,16 @@
 ;; js-mode
 (setq-default js-indent-level preferred-javascript-indent-level)
 
-
 (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
 
 
 ;; Javascript nests {} and () a lot, so I find this helpful
-
 (require-package 'rainbow-delimiters)
 (dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
   (add-hook hook 'rainbow-delimiters-mode))
 
-
 
 ;;; Coffeescript
-
 (after-load 'coffee-mode
   (setq coffee-js-mode preferred-javascript-mode
         coffee-tab-width preferred-javascript-indent-level))
@@ -91,12 +86,10 @@
 ;; ---------------------------------------------------------------------------
 ;; Alternatively, use skewer-mode
 ;; ---------------------------------------------------------------------------
-
 (when (and (>= emacs-major-version 24) (featurep 'js2-mode))
   (require-package 'skewer-mode)
   (after-load 'skewer-mode
     (add-hook 'skewer-mode-hook
               (lambda () (inferior-js-keys-mode -1)))))
-
 
 (provide 'init-javascript)

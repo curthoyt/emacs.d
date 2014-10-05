@@ -15,5 +15,4 @@
 
 (add-auto-mode 'conf-mode "Procfile")
 
-
 (provide 'init-misc)
