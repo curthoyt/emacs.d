@@ -35,9 +35,9 @@
 
 
 ;;; SASS and SCSS
-(require-package 'sass-mode)
-(require-package 'scss-mode)
-(setq-default scss-compile-at-save nil)
+;; (require-package 'sass-mode)
+;; (require-package 'scss-mode)
+;; (setq-default scss-compile-at-save nil)
 
 
 ;;; LESS
