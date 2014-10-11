@@ -3,7 +3,7 @@
 (add-auto-mode 'web-mode "\\.hbs\\'")
 (add-auto-mode 'web-mode "\\.handlebars\\'")
 (add-auto-mode 'web-mode "\\.mustache\\'")
-(add-auto-mode 'web-mode "\\.html?\\'")
+;; (add-auto-mode 'web-mode "\\.html?\\'")
 (add-auto-mode 'web-mode "\\.jst\\'")
 (add-auto-mode 'web-mode "\\.jsx?\\'")
 

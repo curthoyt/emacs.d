@@ -28,6 +28,7 @@
  set-mark-command-repeat-pop t
  show-trailing-whitespace t
  ;; tooltip-delay 1.5
+ standard-indent 2
  truncate-lines nil
  truncate-partial-width-windows nil
  visible-bell nil)
