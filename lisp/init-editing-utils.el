@@ -1,8 +1,9 @@
 (require-package 'unfill)
-(require-package 'whole-line-or-region)
 
 (when (fboundp 'electric-pair-mode)
   (electric-pair-mode))
+(when (fboundp 'electric-indent-mode)
+  (electric-indent-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Some basic preferences
@@ -36,13 +37,6 @@
 ;; (when *is-a-mac*
 ;;   (setq-default locate-command "mdfind"))
 
-(global-auto-revert-mode)
-(setq global-auto-revert-non-file-buffers t
-      auto-revert-verbose nil)
-
-(transient-mark-mode t)
-
-
 ;; ;;; Whitespace
 ;; (defun sanityinc/no-trailing-whitespace ()
 ;;   "Turn off display of trailing whitespace in this buffer."
@@ -61,7 +55,6 @@
 (require-package 'whitespace-cleanup-mode)
 (global-whitespace-cleanup-mode t)
 
-
 ;;; Newline behaviour
 (global-set-key (kbd "RET") 'newline-and-indent)
 (defun sanityinc/newline-at-end-of-line ()
@@ -72,7 +65,6 @@
 
 (global-set-key (kbd "S-<return>") 'sanityinc/newline-at-end-of-line)
 
-
 (when (eval-when-compile (string< "24.3.1" emacs-version))
   ;; https://github.com/purcell/emacs.d/issues/138
   (after-load 'subword
@@ -318,6 +310,7 @@ With arg N, insert N newlines."
                    (lambda (s1 s2) (eq (random 2) 0)))))))
 
 
+
 ;; (when (executable-find "ag")
 ;;   (require-package 'ag)
 ;;   (require-package 'wgrep-ag)

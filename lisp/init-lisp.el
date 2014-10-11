@@ -166,12 +166,6 @@
 (dolist (hook (mapcar #'derived-mode-hook-name sanityinc/elispy-modes))
   (add-hook hook 'sanityinc/emacs-lisp-setup))
 
-(defun sanityinc/maybe-check-parens ()
-  "Run `check-parens' if this is a lispy mode."
-  (when (memq major-mode sanityinc/lispy-modes)
-    (check-parens)))
-
-(add-hook 'after-save-hook #'sanityinc/maybe-check-parens)
 
 (require-package 'eldoc-eval)
 (require 'eldoc-eval)
