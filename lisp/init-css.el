@@ -2,7 +2,11 @@
 (when (eval-when-compile (>= emacs-major-version 24))
   ;; rainbow-mode needs color.el, bundled with Emacs >= 24.
   (require-package 'rainbow-mode)
-  (dolist (hook '(css-mode-hook html-mode-hook sass-mode-hook))
+  (dolist (hook '(
+                  css-mode-hook
+                  html-mode-hook
+                  ;; sass-mode-hook
+                  ))
     (add-hook hook 'rainbow-mode)))
 
 
@@ -48,7 +52,11 @@
 
 ;;; Auto-complete CSS keywords
 (after-load 'auto-complete
-  (dolist (hook '(css-mode-hook sass-mode-hook scss-mode-hook))
+  (dolist (hook '(
+                  css-mode-hook
+                  ;; sass-mode-hook
+                  ;; scss-mode-hook
+                  ))
     (add-hook hook 'ac-css-mode-setup)))
 
 
