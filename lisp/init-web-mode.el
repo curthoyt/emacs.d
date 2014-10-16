@@ -17,4 +17,6 @@
         ad-do-it)
     ad-do-it))
 
+(add-hook 'web-mode-hook 'subword-mode)
+
 (provide 'init-web-mode)
