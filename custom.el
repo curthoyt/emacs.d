@@ -22,7 +22,7 @@
  '(web-mode-markup-indent-offset 2)
  '(web-mode-script-padding 2)
  '(web-mode-style-padding 2)
- '(web-mode-tag-auto-close-style 2))
+ '(web-mode-tag-auto-close-style 1))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

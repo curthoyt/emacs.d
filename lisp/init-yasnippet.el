@@ -5,4 +5,7 @@
 (require-package 'react-snippets)
 (require 'react-snippets)
 
+(require-package 'clojure-snippets)
+(require 'clojure-snippets)
+
 (provide 'init-yasnippet)
