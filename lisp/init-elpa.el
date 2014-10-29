@@ -64,7 +64,6 @@ locate PACKAGE."
      (message "Couldn't install package `%s': %S" package err)
      nil)))
 
->>>>>>> upstream/master
 
 ;;; Fire up package.el
 (setq package-enable-at-startup nil)
