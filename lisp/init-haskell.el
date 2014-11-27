@@ -2,12 +2,32 @@
 ;; (when (> emacs-major-version 23)
 ;;   (require-package 'hayoo))
 
+
+;; Completion
+
 (add-to-list 'completion-ignored-extensions ".hi")
 
-;;; Flycheck specifics
-(when (> emacs-major-version 23)
-  (require-package 'flycheck-hdevtools)
-  (require-package 'flycheck-haskell)
+;; Hook auto-complete into the completions provided by the inferior
+;; haskell process, if any.
+
+(require-package 'ac-haskell-process)
+
+(add-hook 'interactive-haskell-mode-hook 'ac-haskell-process-setup)
+(add-hook 'haskell-interactive-mode-hook 'ac-haskell-process-setup)
+
+(after-load 'haskell-mode
+  (define-key haskell-mode-map (kbd "C-c C-d") 'ac-haskell-process-popup-doc))
+
+(after-load 'auto-complete
+  (add-to-list 'ac-modes 'haskell-interactive-mode)
+  (add-hook 'haskell-interactive-mode-hook 'set-auto-complete-as-completion-at-point-function))
+
+
+
+;; Flycheck specifics
+
+(when (and (maybe-require-package 'flycheck-haskell)
+           (require-package 'flycheck-hdevtools))
   (after-load 'flycheck
     (add-hook 'haskell-mode-hook #'flycheck-haskell-setup)
 
@@ -30,6 +50,9 @@ been saved."
 
     (require 'flycheck-hdevtools)))
 
+
+;; Docs
+
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook 'turn-on-haskell-doc-mode)
   (add-hook hook (lambda () (subword-mode +1))))
@@ -37,13 +60,26 @@ been saved."
 
 (add-hook 'haskell-interactive-mode-hook 'sanityinc/no-trailing-whitespace)
 
+
+;; Interaction
+
 (after-load 'haskell-process
   (diminish 'interactive-haskell-mode " IntHS"))
 
 (add-auto-mode 'haskell-mode "\\.ghci\\'")
 
+(when (maybe-require-package 'ghci-completion)
+  (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion))
+
+
+
+;; Indentation
 (require-package 'hi2)
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
+
+
+
+;; Source code helpers
 
 (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
@@ -52,10 +88,6 @@ been saved."
 ;; (after-load 'haskell-mode
 ;;   (define-key haskell-mode-map (kbd "C-c h") 'hoogle)
 ;;   (define-key haskell-mode-map (kbd "C-o") 'open-line))
-
-(when (eval-when-compile (>= emacs-major-version 24))
-  (require-package 'ghci-completion)
-  (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion))
 
 ;; (eval-after-load 'page-break-lines
 ;;   '(push 'haskell-mode page-break-lines-modes))
@@ -83,5 +115,6 @@ been saved."
 (after-load 'auto-complete
   (add-to-list 'ac-modes 'haskell-interactive-mode)
   (add-hook 'haskell-interactive-mode-hook 'set-auto-complete-as-completion-at-point-function))
+
 
 (provide 'init-haskell)
