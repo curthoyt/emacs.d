@@ -89,7 +89,7 @@
 ;; (require 'init-racket)
 ;; (require 'init-rust)
 ;; (require 'init-nimrod)
-;; (require 'init-ocaml)
+(require 'init-ocaml)
 
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
