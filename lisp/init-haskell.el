@@ -5,8 +5,6 @@
 
 ;; Completion
 
-(add-to-list 'completion-ignored-extensions ".hi")
-
 ;; Hook auto-complete into the completions provided by the inferior
 ;; haskell process, if any.
 
@@ -55,7 +53,8 @@ been saved."
 
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook 'turn-on-haskell-doc-mode)
-  (add-hook hook (lambda () (subword-mode +1))))
+  (add-hook hook (lambda () (subword-mode +1)))
+  (add-hook hook (lambda () (eldoc-mode 1))))
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 (add-hook 'haskell-interactive-mode-hook 'sanityinc/no-trailing-whitespace)
@@ -63,7 +62,7 @@ been saved."
 
 ;; Interaction
 
-(after-load 'haskell-process
+(after-load 'haskell
   (diminish 'interactive-haskell-mode " IntHS"))
 
 (add-auto-mode 'haskell-mode "\\.ghci\\'")
