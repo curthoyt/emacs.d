@@ -34,6 +34,7 @@
   (add-hook 'js2-mode-hook 'sanityinc/disable-js2-checks-if-flycheck-active)
 
   (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
+  (add-hook 'js2-mode-hook 'subword-mode)
 
   (setq-default
    js2-basic-offset preferred-javascript-indent-level
