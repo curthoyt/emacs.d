@@ -89,7 +89,7 @@
 ;; (require 'init-racket)
 ;; (require 'init-rust)
 ;; (require 'init-nimrod)
-(require 'init-ocaml)
+;; (require 'init-ocaml)
 
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
@@ -98,11 +98,11 @@
 (require 'init-paredit)
 (require 'init-lisp)
 ;; (require 'init-slime)
-(require 'init-clojure)
-(require 'init-clojure-cider)
+;; (require 'init-clojure)
+;; (require 'init-clojure-cider)
 ;; (require 'init-common-lisp)
 
-(require 'init-web-mode)
+;; (require 'init-web-mode)
 ;; (require 'init-typescript)
 ;; (require 'init-jsx-mode)
 

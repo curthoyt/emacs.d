@@ -34,3 +34,5 @@ site-lisp/
 /eshell
 /.cask/
 /.sx/
+/ido.last
+/recentf
