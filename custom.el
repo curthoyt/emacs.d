@@ -8,17 +8,11 @@
  '(custom-enabled-themes (quote (base16-chalk)))
  '(custom-safe-themes
    (quote
-    ("9bac44c2b4dfbb723906b8c491ec06801feb57aa60448d047dbfdbd1a8650897" default)))
+    ("e3c90203acbde2cf8016c6ba3f9c5300c97ddc63fcb78d84ca0a144d402eedc6" "9bac44c2b4dfbb723906b8c491ec06801feb57aa60448d047dbfdbd1a8650897" default)))
  '(flycheck-disabled-checkers (quote (emacs-lisp-checkdoc html-tidy)))
- '(haskell-ask-also-kill-buffers nil)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-type (quote cabal-repl))
- '(haskell-stylish-on-save nil t)
- '(haskell-tags-on-save t)
  '(jsx-indent-level 2)
  '(session-use-package t nil (session))
  '(sh-basic-offset 2)
- '(web-mode-block-padding 2)
  '(web-mode-enable-auto-closing t)
  '(web-mode-enable-auto-indentation t)
  '(web-mode-enable-auto-opening t)

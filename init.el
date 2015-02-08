@@ -102,7 +102,7 @@
 ;; (require 'init-clojure-cider)
 ;; (require 'init-common-lisp)
 
-;; (require 'init-web-mode)
+(require 'init-web-mode)
 ;; (require 'init-typescript)
 ;; (require 'init-jsx-mode)
 
