@@ -19,4 +19,11 @@
 
 (add-hook 'web-mode-hook 'subword-mode)
 
+(add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+(add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
+(add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+
+(setq web-mode-content-types-alist
+      '(("jsx"  . "\\.js[x]?\\'")))
+
 (provide 'init-web-mode)

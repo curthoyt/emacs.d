@@ -60,7 +60,7 @@
 ;; (require 'init-fonts)
 (require 'init-mmm)
 
-(require 'init-yasnippet)
+;; (require 'init-yasnippet)
 (require 'init-editing-utils)
 ;; (require 'init-vc)
 ;; (require 'init-darcs)
@@ -98,8 +98,8 @@
 (require 'init-paredit)
 (require 'init-lisp)
 ;; (require 'init-slime)
-;; (require 'init-clojure)
-;; (require 'init-clojure-cider)
+(require 'init-clojure)
+(require 'init-clojure-cider)
 ;; (require 'init-common-lisp)
 
 (require 'init-web-mode)
